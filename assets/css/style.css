@@ -1,0 +1,35 @@
+#message {
+    position: absolute;
+    top: 45vh;
+    left: 0;
+    right: 0;
+    background-color: red;
+    display: none;
+}
+
+
+
+.hide{
+    display: none;
+}
+
+
+.questionText {
+    background-color: gold;
+    color: aquamarine;
+}
+
+
+.modal {
+    position:absolute;
+    top: 45vh;
+    left: 0;
+    right: 0;
+    width: 400px;
+    padding: 30 px; 
+    background-color: grey;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+
+}
