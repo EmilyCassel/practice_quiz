@@ -21,7 +21,7 @@ function checkAnswer(eventObj){
     var el = eventObj.target; 
 
     if (el.tagName ==="BUTTON"){
-        var userAnser = el.innerText; 
+        var userAnswer = el.innerText; 
 
         if (userAnswer === questions[0].correctAnswer){
         } else {
@@ -47,7 +47,6 @@ function startGame() {
  
         time--;
 
-   
         h1.innerText = "Time Left: " + time; 
 
         if (time <= 0) {
@@ -55,28 +54,41 @@ function startGame() {
             }
         }, 1000);
 
-        var questionWrap = document.querySelector("#question-wrap")
+        displayQuestion()
+
+        var questionWrap = document.querySelector(".question-wrap")
 }
 
 function displayQuestion (){
     
     var currentQuestionObj = questions[questionIndex]
 
-    var textEl = document.querySelector(".question-text")
+    var textEl = document.querySelector("#question-text")
 
-    textEl.innerText = currentQuestionobj.questionText
+    var choiceContainer = document.querySelector(".choices")
+
+    textEl.innerText = currentQuestionObj.questionText
+
+    choiceContainer.innerHTML = ""
 
     for (var i = 0; i < currentQuestionObj.choices.length; i++){
+
         var choice = document.createElement("button")
+
+        choice.innerText = currentQuestionObj.choices[i];
+
+        choice.addEventListener("click", checkAnswer) 
+
+        choiceContainer.appendChild(choice)
     }
 }
 
-displayQuestion
 
 
+document.querySelector(".startBtn").addEventListener("click", startGame)
 
 
-startGame();
+//startGame();
 
 
 
